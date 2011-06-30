@@ -37,7 +37,7 @@ $app->register(new Grom\Silex\SnappyExtension(), array(
 ````php
 use Symfony\Component\HttpFoundation\Response;
 
-$app->get('/snapshot', function() use $app {
+$app->get('/snapshot', function() use ($app) {
     $url = $app['request']->get('url');
     $image = $app['snappy.image']->get($url);
 
