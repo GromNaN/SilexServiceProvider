@@ -18,7 +18,7 @@ class FluxbbExtension implements ExtensionInterface
             if (isset($app['fluxbb.base_path'])) {
                 define('PUN_ROOT', realpath($app['fluxbb.base_path']).'/');
             } else {
-                throw new \InvalidParameterExcetion('You must register "fluxbb.base_path" with the base path of your installation of FluxBB');
+                throw new \InvalidParameterException('You must register "fluxbb.base_path" with the base path of your installation of FluxBB');
             }
         }
 
