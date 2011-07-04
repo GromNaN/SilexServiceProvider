@@ -19,11 +19,11 @@ Make sure you place a copy of Snappy in the `vendor/snappy` directory and a copy
 
 ```
 git submodule add git://github.com/knplabs/snappy.git vendor/snappy
-git submodule add git://github.com/GromNaN/SilexSnappyExtension.git vendor/snappy-extension
+git submodule add git://github.com/GromNaN/GromSilexExtensions.git vendor/grom-silex
 ```
 
 ```php
-require_once __DIR__.'/vendor/snappy-extension/src/Grom/Silex/SnappyExtension.php';
+$app['autoloader']->registerNamespace('Grom\\Silex', __DIR__.'/vendor/grom-silex/src/');
 
 $app->register(new Grom\Silex\SnappyExtension(), array(
     'snappy.image_binary' => '/usr/local/bin/wkhtmltoimage',
