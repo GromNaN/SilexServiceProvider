@@ -4,4 +4,5 @@
 
 * [Fluxbb](doc/fluxbb.md) - Connect your forum with your application
 * [Snappy](doc/snappy.md) - Generate PDF and Images from HTML
+* [Imagine](doc/imagine.md) - Image transformation library
 
