@@ -5,7 +5,9 @@ The SnappyExtension provides integration with [Snappy](https://github.com/knplab
 ## Parameters
 
 * __snappy.image_binary:__ Absolute path to `wkhtmltoimage`.
+* __snappy.image_options:__ Array of options to give to Snappy (see [wkhtmltoimage doc](http://madalgo.au.dk/~jakobt/wkhtmltoxdoc/wkhtmltoimage_0.10.0_rc2-doc.html)).
 * __snappy.pdf_binary:__ Absolute path to `wkhtmltopdf`.
+* __snappy.pdf_options:__ Array of options to give to Snappy (see [wkhtmltopdf doc](http://madalgo.au.dk/~jakobt/wkhtmltoxdoc/wkhtmltopdf_0.10.0_rc2-doc.html)).
 * __snappy.class_path:__ (optional) Path to where the Snappy library is located.
 
 ## Services
@@ -34,19 +36,36 @@ $app->register(new Grom\Silex\SnappyExtension(), array(
 
 ## Usage
 
-````php
+You can use both `snappy.image` and `snappy.pdf` the same way.
+
+```php
 use Symfony\Component\HttpFoundation\Response;
 
-$app->get('/snapshot', function() use ($app) {
+$app->get('/image', function() use ($app) {
     $url = $app['request']->get('url');
-    $image = $app['snappy.image']->get($url);
+    $image = $app['snappy.image']->getOutput($url);
 
-    $response = new Response();
+    $response = new Response($image);
     $response->headers->set('Content-Type', 'image/jpeg');
-    $response->setContent($image);
 
     return $response;
 });
 ```
 
-This will convert the given url into an image. Try `/snapshot?url=http://www.github.com`
+This will convert the given url into an image. Try `/image?url=http://www.github.com`
+
+```php
+use Symfony\Component\HttpFoundation\Response;
+
+$app->get('/pdf', function() use ($app) {
+    $url = $app['request']->get('url');
+    $pdf = $app['snappy.pdf']->getOutput($url);
+
+    $response = new Response($pdf);
+    $response->headers->set('Content-Type', 'application/pdf');
+
+    return $response;
+});
+```
+
+This will convert the given url into a PDF. Try `/pdf?url=http://www.github.com`
