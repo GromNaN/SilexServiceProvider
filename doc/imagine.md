@@ -1,6 +1,6 @@
-# Imagine Extension for Silex
+# Imagine Service Provider for Silex
 
-The ImagineExtension provides integration with [Imagine](https://github.com/avalanche123/Imagine) 
+The ImagineServiceProvider provides integration with [Imagine](https://github.com/avalanche123/Imagine)
 in [Silex](http://silex-project.org/).
 
 ## Parameters
@@ -17,16 +17,16 @@ in [Silex](http://silex-project.org/).
 Make sure you place a copy of _Imagine_ in the `vendor/imagine directory.
 
 ```
-git submodule add git://github.com/GromNaN/GromSilexExtensions.git vendor/grom-silex
+git submodule add git://github.com/GromNaN/GromSilexExtensions.git vendor/GromSilexExtensions
 git submodule add git://github.com/avalanche123/Imagine.git vendor/imagine
 ```
 
-Register the extension in your Silex application.
+Register the service provider in your Silex application.
 
 ```php
-$app['autoloader']->registerNamespace('Grom\\Silex', __DIR__.'/vendor/grom-silex/src/');
+$app['autoloader']->registerNamespace('Grom\\Silex', __DIR__.'/vendor/GromSilexExtensions/src/');
 
-$app->register(new Grom\Silex\ImagineExtension(), array(
+$app->register(new Grom\Silex\ImagineServiceProvider(), array(
     'imagine.factory' => 'Gd',
     'imagine.base_path' => __DIR__.'/vendor/imagine',
 ));
@@ -34,7 +34,7 @@ $app->register(new Grom\Silex\ImagineExtension(), array(
 
 ## Usage
 
-The Imagine extension provide an `imagine` service.
+The Imagine service provider provide an `imagine` service.
 
 ```php
 $app->get('/thumb/{file}', function($file) use ($app) {
@@ -49,10 +49,10 @@ $app->get('/thumb/{file}', function($file) use ($app) {
     $response = new Symfony\Component\HttpFoundation\Response();
     $response->headers->set('Content-type', 'image/'.$format);
     $response->setContent($image->get($format));
-    
+
     return $response;
 });
 ```
 
-Put some images inside a directory name `images`. This will create a thumbnail 
-of the image with a size of 200px. 
+Put some images inside a directory name `images`. This will create a thumbnail
+of the image with a size of 200px.

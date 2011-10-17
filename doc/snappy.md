@@ -1,6 +1,6 @@
-# Snappy Extension for Silex
+# Snappy Service Provider for Silex
 
-The SnappyExtension provides integration with [Snappy](https://github.com/knplabs/snappy/) in [Silex](http://silex-project.org/).
+The SnappyProvider provides integration with [Snappy](https://github.com/knplabs/snappy/) in [Silex](http://silex-project.org/).
 
 ## Parameters
 
@@ -17,17 +17,17 @@ The SnappyExtension provides integration with [Snappy](https://github.com/knplab
 
 ## Registering
 
-Make sure you place a copy of Snappy in the `vendor/snappy` directory and a copy of SnappyExtension in `vendor/snappy-extension`.
+Make sure you place a copy of Snappy in the `vendor/snappy` directory and a copy of GromSilexExtensions in `vendor/GromSilexExtensions`.
 
 ```
 git submodule add git://github.com/knplabs/snappy.git vendor/snappy
-git submodule add git://github.com/GromNaN/GromSilexExtensions.git vendor/grom-silex
+git submodule add git://github.com/GromNaN/GromSilexExtensions.git vendor/GromSilexExtensions
 ```
 
 ```php
 $app['autoloader']->registerNamespace('Grom\\Silex', __DIR__.'/vendor/grom-silex/src/');
 
-$app->register(new Grom\Silex\SnappyExtension(), array(
+$app->register(new Grom\Silex\SnappyProvider(), array(
     'snappy.image_binary' => '/usr/local/bin/wkhtmltoimage',
     'snappy.pdf_binary'   => '/usr/local/bin/wkhtmltopdf',
     'snappy.class_path'   => __DIR__.'/vendor/snappy/src',

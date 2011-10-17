@@ -3,16 +3,16 @@
 namespace Grom\Silex;
 
 use Silex\Application;
-use Silex\ExtensionInterface;
+use Silex\ServiceProviderInterface;
 use Knp\Snappy\Image;
 use Knp\Snappy\Pdf;
 
 /**
- * Silex extension to integrate Snappy library.
+ * Silex service provider to integrate Snappy library.
  *
  * @author Jérôme Tamarelle <jerome@tamarelle.net>
  */
-class SnappyExtension implements ExtensionInterface
+class SnappyServiceProvider implements ServiceProviderInterface
 {
     public function register(Application $app)
     {

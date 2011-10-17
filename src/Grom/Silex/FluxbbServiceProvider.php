@@ -2,15 +2,15 @@
 
 namespace Grom\Silex;
 
-use Silex\ExtensionInterface;
+use Silex\ServiceProviderInterface;
 use Silex\Application;
 
 /**
- * Silex extension to connect with your FluxBB forum.
+ * Silex service provider to connect with your FluxBB forum.
  *
  * @author Jérôme Tamarelle <jerome@tamarelle.net>
  */
-class FluxbbExtension implements ExtensionInterface
+class FluxbbServiceProvider implements ServiceProviderInterface
 {
     public function register(Application $app)
     {

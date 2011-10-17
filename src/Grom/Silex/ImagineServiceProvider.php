@@ -3,16 +3,16 @@
 namespace Grom\Silex;
 
 use Silex\Application;
-use Silex\ExtensionInterface;
+use Silex\ServiceProviderInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Imagine\Filter\Transformation;
 
 /**
- * Silex extension to integrate Imagine library.
+ * Silex service provider to integrate Imagine library.
  *
  * @author Jérôme Tamarelle <jerome@tamarelle.net>
  */
-class ImagineExtension implements ExtensionInterface
+class ImagineServiceProvider implements ServiceProviderInterface
 {
     public function register(Application $app)
     {

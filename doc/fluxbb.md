@@ -1,6 +1,6 @@
-# Fluxbb Extension for Silex
+# Fluxbb Service Provider for Silex
 
-The FluxbbExtension provides integration with [Fluxbb](http://fluxbb.org/) in [Silex](http://silex-project.org/).
+The FluxbbServiceProvider provides integration with [Fluxbb](http://fluxbb.org/) in [Silex](http://silex-project.org/).
 
 ## Parameters
 
@@ -18,15 +18,15 @@ You need a valid installation of Fluxbb, version 1.4
 Go to your Silex application directory and clone the Git repository into `vendor`.
 
 ```
-git submodule add git://github.com/GromNaN/GromSilexExtensions.git vendor/grom-silex
+git submodule add git://github.com/GromNaN/GromSilexExtensions.git vendor/GromSilexExtensions
 ```
 
-Register the extension in your Silex application.
+Register the provider in your Silex application.
 
 ```php
-$app['autoloader']->registerNamespace('Grom\\Silex', __DIR__.'/vendor/grom-silex/src/');
+$app['autoloader']->registerNamespace('Grom\\Silex', __DIR__.'/vendor/GromSilexExtensions/src/');
 
-$app->register(new Grom\Silex\FluxbbExtension(), array(
+$app->register(new Grom\Silex\FluxbbServiceProvider(), array(
     'flux.base_path' => 'path/to/fluxbb',
 ));
 ```
