@@ -20,7 +20,7 @@ class ImagineServiceProvider implements ServiceProviderInterface
             $app['imagine.factory'] = 'Gd';
         }
 
-        $app['imagine'] = $app->share(function () use ($app) {
+        $app['imagine'] = $app->share(function ($app) {
             $class = sprintf('\Imagine\%s\Imagine', $app['imagine.factory']);
             return new $class();
         });
