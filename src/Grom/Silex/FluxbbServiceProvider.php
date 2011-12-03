@@ -23,7 +23,7 @@ class FluxbbServiceProvider implements ServiceProviderInterface
         }
 
         // Current user infos
-        $app['fluxbb.user'] = $app->share(function () use ($app)
+        $app['fluxbb.user'] = $app->share(function ($app)
         {
             foreach($app['fluxbb.config'] as $name => $value)
                 $GLOBALS[$name] = $value;
@@ -45,7 +45,7 @@ class FluxbbServiceProvider implements ServiceProviderInterface
 
         // DBLayer: database abstraction
         // @link http://fluxbb.org/docs/v1.4/dblayer
-        $app['fluxbb.db'] = $app->share(function () use ($app)
+        $app['fluxbb.db'] = $app->share(function ($app)
         {
             $config = $app['fluxbb.config'];
 
