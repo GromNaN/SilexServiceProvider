@@ -25,9 +25,9 @@ git submodule add git://github.com/GromNaN/GromSilexExtensions.git vendor/GromSi
 ```
 
 ```php
-$app['autoloader']->registerNamespace('Grom\\Silex', __DIR__.'/vendor/grom-silex/src/');
+$app['autoloader']->registerNamespace('Grom\\Silex', __DIR__.'/vendor/GromSilexExtensions/src/');
 
-$app->register(new Grom\Silex\SnappyProvider(), array(
+$app->register(new Grom\Silex\SnappyServiceProvider(), array(
     'snappy.image_binary' => '/usr/local/bin/wkhtmltoimage',
     'snappy.pdf_binary'   => '/usr/local/bin/wkhtmltopdf',
     'snappy.class_path'   => __DIR__.'/vendor/snappy/src',
