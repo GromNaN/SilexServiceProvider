@@ -17,14 +17,14 @@ in [Silex](http://silex-project.org/).
 Make sure you place a copy of _Imagine_ in the `vendor/imagine directory.
 
 ```
-git submodule add git://github.com/GromNaN/GromSilexExtensions.git vendor/GromSilexExtensions
+git submodule add git://github.com/GromNaN/SilexServiceProvider.git vendor/SilexServiceProvider
 git submodule add git://github.com/avalanche123/Imagine.git vendor/imagine
 ```
 
 Register the service provider in your Silex application.
 
 ```php
-$app['autoloader']->registerNamespace('Grom\\Silex', __DIR__.'/vendor/GromSilexExtensions/src/');
+$app['autoloader']->registerNamespace('Grom\\Silex', __DIR__.'/vendor/SilexServiceProvider/src/');
 
 $app->register(new Grom\Silex\ImagineServiceProvider(), array(
     'imagine.factory' => 'Gd',

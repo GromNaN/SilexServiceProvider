@@ -5,4 +5,3 @@ This is some service providers to increase its capacities.
 
 * [Snappy](doc/snappy.md) - Generate PDF and Images from HTML
 * [Imagine](doc/imagine.md) - Image transformation library
-

@@ -17,15 +17,15 @@ The SnappyProvider provides integration with [Snappy](https://github.com/knplabs
 
 ## Registering
 
-Make sure you place a copy of Snappy in the `vendor/snappy` directory and a copy of GromSilexExtensions in `vendor/GromSilexExtensions`.
+Make sure you place a copy of Snappy in the `vendor/snappy` directory and a copy of SilexServiceProvider in `vendor/SilexServiceProvider`.
 
 ```
 git submodule add git://github.com/knplabs/snappy.git vendor/snappy
-git submodule add git://github.com/GromNaN/GromSilexExtensions.git vendor/GromSilexExtensions
+git submodule add git://github.com/GromNaN/SilexServiceProvider.git vendor/SilexServiceProvider
 ```
 
 ```php
-$app['autoloader']->registerNamespace('Grom\\Silex', __DIR__.'/vendor/GromSilexExtensions/src/');
+$app['autoloader']->registerNamespace('Grom\\Silex', __DIR__.'/vendor/SilexServiceProvider/src/');
 
 $app->register(new Grom\Silex\SnappyServiceProvider(), array(
     'snappy.image_binary' => '/usr/local/bin/wkhtmltoimage',
