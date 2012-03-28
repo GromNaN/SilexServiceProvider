@@ -4,7 +4,6 @@ namespace Grom\Silex;
 
 use Silex\Application;
 use Silex\ServiceProviderInterface;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Silex service provider to integrate Imagine library.
