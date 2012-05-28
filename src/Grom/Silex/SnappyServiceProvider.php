@@ -14,6 +14,10 @@ use Knp\Snappy\Pdf;
  */
 class SnappyServiceProvider implements ServiceProviderInterface
 {
+    public function boot(Application $app){
+    	
+	}
+    
     public function register(Application $app)
     {
         $app['snappy.image'] = $app->share(function ($app) {
