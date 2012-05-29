@@ -10,7 +10,7 @@ in [Silex](http://silex-project.org/).
 
 ## Services
 
-* __imagine:__ Imagine service to load/create images ([see the API](http://imagine.readthedocs.org/en/latest/introduction.html#basic-usage))
+* __imagine:__ Imagine service to load/create images ([see the API](http://imagine.readthedocs.org/en/latest/usage/introduction.html#basic-usage))
 
 ## Registering
 
