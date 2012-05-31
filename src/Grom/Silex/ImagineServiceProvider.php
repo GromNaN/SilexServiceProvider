@@ -13,9 +13,9 @@ use Silex\ServiceProviderInterface;
 class ImagineServiceProvider implements ServiceProviderInterface
 {
     public function boot(Application $app)
-    {	
+    {
     }
-    
+
     public function register(Application $app)
     {
         if(!isset($app['imagine.factory'])) {
@@ -26,9 +26,5 @@ class ImagineServiceProvider implements ServiceProviderInterface
             $class = sprintf('\Imagine\%s\Imagine', $app['imagine.factory']);
             return new $class();
         });
-
-        if (isset($app['imagine.class_path'])) {
-            $app['autoloader']->registerNamespace('Imagine', $app['imagine.class_path']);
-        }
     }
 }
