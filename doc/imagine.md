@@ -6,7 +6,6 @@ in [Silex](http://silex-project.org/).
 ## Parameters
 
 * __imagine.factory (optional):__ Image factory to use (_Gd_, Gmagick, Imagick)
-* __imagine.class_path (optional):__ Path to where the Imagine library is located.
 
 ## Services
 
@@ -14,18 +13,13 @@ in [Silex](http://silex-project.org/).
 
 ## Registering
 
-Make sure you place a copy of _Imagine_ in the `vendor/imagine directory.
+If you are using [composer](http://getcomposer.org) to include the SilexServiceProvider in your project, you do not need to register anything. Composer automatically adds the appropriate namespaces to the autoloader.
 
-```
-git submodule add git://github.com/GromNaN/SilexServiceProvider.git vendor/SilexServiceProvider
-git submodule add git://github.com/avalanche123/Imagine.git vendor/imagine
-```
+In case you're not using composer, you will need to register the `Imagine` namespace in your autoloader yourself. Make sure you place a copy of _Imagine_ in the `vendor/imagine` directory.
 
 Register the service provider in your Silex application.
 
 ```php
-$app['autoloader']->registerNamespace('Grom\\Silex', __DIR__.'/vendor/SilexServiceProvider/src/');
-
 $app->register(new Grom\Silex\ImagineServiceProvider(), array(
     'imagine.factory' => 'Gd',
     'imagine.base_path' => __DIR__.'/vendor/imagine',
