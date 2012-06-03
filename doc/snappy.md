@@ -8,7 +8,6 @@ The SnappyProvider provides integration with [Snappy](https://github.com/knplabs
 * __snappy.image_options:__ Array of options to give to Snappy (see [wkhtmltoimage doc](http://madalgo.au.dk/~jakobt/wkhtmltoxdoc/wkhtmltoimage_0.10.0_rc2-doc.html)).
 * __snappy.pdf_binary:__ Absolute path to `wkhtmltopdf`.
 * __snappy.pdf_options:__ Array of options to give to Snappy (see [wkhtmltopdf doc](http://madalgo.au.dk/~jakobt/wkhtmltoxdoc/wkhtmltopdf_0.10.0_rc2-doc.html)).
-* __snappy.class_path:__ (optional) Path to where the Snappy library is located.
 
 ## Services
 
@@ -17,20 +16,14 @@ The SnappyProvider provides integration with [Snappy](https://github.com/knplabs
 
 ## Registering
 
-Make sure you place a copy of Snappy in the `vendor/snappy` directory and a copy of SilexServiceProvider in `vendor/SilexServiceProvider`.
+If you are using [composer](http://getcomposer.org) to include the SilexServiceProvider in your project, you do not need to register anything. Composer automatically adds the appropriate namespaces to the autoloader.
 
-```
-git submodule add git://github.com/knplabs/snappy.git vendor/snappy
-git submodule add git://github.com/GromNaN/SilexServiceProvider.git vendor/SilexServiceProvider
-```
+In case you're not using composer, you will need to register the `Knp\Snappy` namespace in your autoloader yourself. Make sure you place a copy of _Snappy_ in the `vendor/snappy` directory.
 
 ```php
-$app['autoloader']->registerNamespace('Grom\\Silex', __DIR__.'/vendor/SilexServiceProvider/src/');
-
 $app->register(new Grom\Silex\SnappyServiceProvider(), array(
     'snappy.image_binary' => '/usr/local/bin/wkhtmltoimage',
     'snappy.pdf_binary'   => '/usr/local/bin/wkhtmltopdf',
-    'snappy.class_path'   => __DIR__.'/vendor/snappy/src',
 ));
 ```
 

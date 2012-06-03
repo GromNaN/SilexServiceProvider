@@ -17,7 +17,7 @@ class SnappyServiceProvider implements ServiceProviderInterface
     public function boot(Application $app)
     {
     }
-    
+
     public function register(Application $app)
     {
         $app['snappy.image'] = $app->share(function ($app) {
@@ -33,9 +33,5 @@ class SnappyServiceProvider implements ServiceProviderInterface
                 isset($app['snappy.pdf_options']) ? $app['snappy.pdf_options'] : array()
             );
         });
-
-        if (isset($app['snappy.class_path'])) {
-            $app['autoloader']->registerNamespace('Knp\\Snappy', $app['snappy.class_path']);
-        }
     }
 }
